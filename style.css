@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Cairo:wght@200;400&family=Dancing+Script:wght@700&family=Poppins&display=swap');
+
+:root {
+    --hover-color: #D1884F;
+    --title-color: #008AAA;
+    --welcome-color: #3BBADB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Amiri', serif;
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20.8px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.navbar a {
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.bx {
+    margin-right: 5px;
+}
+
+.navbar a:hover {
+    color: var(--hover-color);
+}
+
+#check {
+    display: none;
+}
+
+.icons {
+    position: absolute;
+    right: 5%;
+    margin-top: 5%;
+    font-size: 44.8px;
+    color: #000;
+    cursor: pointer;
+    display: none;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.person-img {
+    width: 250px;
+    height: 282px;
+    border-bottom-left-radius: 130px;
+    border-bottom-right-radius: 130px;
+    box-shadow: -18px 18px 1px var(--welcome-color);
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    border-bottom-left-radius: 130px;
+}
+
+.person-info {
+    width: 300px;
+    margin-right: 100px;
+    text-align: left;
+}
+
+.person-info .label-check {
+    color: var(--welcome-color);
+}
+
+.person-info .label-less {
+    color: var(--welcome-color);
+}
+
+h1 {
+    color: var(--title-color);
+}
+
+span {
+    color: var(--hover-color);
+}
+
+.welcome {
+    color: var(--welcome-color);
+}
+
+.buttons {
+    margin-top: 40px;
+}
+
+.btn1 {
+    background-color: var(--title-color);
+    color: #fff;
+    border: 1px solid var(--title-color);
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-right: 10px;
+    box-shadow: 0px 2px 7px var(--title-color);
+}
+
+.btn2 {
+    background-color: white;
+    color: var(--title-color);
+    border: 1px solid var(--title-color);
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+#checkup {
+    display: none;
+}
+
+.content {
+    display: none;
+    transition: 0.5s linear;
+}
+
+
+#checkup:checked~.content {
+    display: block;
+}
+
+#checkup:checked~p .label-check {
+    display: none;
+}
+
+#checkup:checked~p .label-less {
+    display: inline;
+}
+
+
+@media(max-width: 992px) {
+    .header {
+        padding: 20.8px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        width: 100%;
+    }
+
+    .icons {
+        display: inline-flex;
+    }
+
+    #check:checked~.icons #menu-icon {
+        display: none;
+    }
+
+    .icons #close-icon {
+        display: none;
+    }
+
+    #check:checked~.icons #close-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(50px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: 0.3s ease;
+    }
+
+
+    #check:checked~.navbar {
+        height: auto;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 17.6px;
+        margin: 24px 0;
+        text-align: center;
+        transform: translateY(-50px);
+        transition: 0.3s ease;
+    }
+
+    #check:checked~.navbar a {
+        transform: translateY(0);
+    }
+
+    main {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .person-img {
+        width: 200px;
+        height: 217px;
+        margin-top: 70px;
+    }
+
+    img {
+        width: 250px;
+        height: 240px;
+        border-bottom-left-radius: 130px;
+    }
+
+    .person-info {
+        margin: 20px 0;
+        text-align: center;
+        word-wrap: break-word;
+
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn1 {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
